@@ -7,7 +7,7 @@ Status: OPEN until a commit on `skynet` closes it (note the hash).
 |---|------|-------------|----------|-------|--------|
 | 1 | Civilians | No visible relationship/trust meter. Convince is one permanent dice roll per civilian (shared by all players) on the Support skill, odds hidden, only a pass/fail hint | Source + play | `OVT_ConvertSupporterAction`, `OVT_ResistanceRequestComponent.RpcAsk_ConvertSupporter` | OPEN |
 | 2 | Civilians | Recruit is a flat cash cost; ignores how the civilian feels | Source | `OVT_RecruitCivilianAction`, `OVT_RecruitRequestComponent` | OPEN |
-| 3 | Economy | Drug sales pay cash only (1.25x buy price). No effect on trust, support, stability or heat | Source | `OVT_SellDrugsAction`, `OVT_EconomyRequestComponent.RpcAsk_SellDrugs` | OPEN |
+| 3 | Economy | Drug sales pay cash only (1.25x buy price). No effect on trust, support, stability or heat. Player note: it is the main money method and fine as is for now; revisit later (tie to trust/heat, or rebalance) | Source | `OVT_SellDrugsAction`, `OVT_EconomyRequestComponent.RpcAsk_SellDrugs` | OPEN |
 | 4 | Buildings | No door lock/unlock system. Owning a building via Real Estate does not stop entry | Play + source | nothing exists; pattern to copy: `OVT_ToggleSitePrivacyAction` | OPEN |
 | 5 | Storage | Only vehicles, ammo boxes and the warehouse building are stash holders. World crates and shelves are not; no player-placeable stash prefab | Source | `OVT_StorageComponent` (prefab bases) | OPEN |
 | 6 | Wanted | (see 13-15 for the design ideas) Changing clothes does not clear or reduce a wanted level. `GetEffectiveWantedLevel()` is a stub ("may add later"). Level only steps down on timeout | Source | `OVT_PlayerWantedComponent` | OPEN |
