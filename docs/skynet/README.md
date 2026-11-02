@@ -48,3 +48,18 @@ or a `modded class OVT_MainMenuContext` in an overlay mod. Not started.
 ## Open questions
 - How the start menu builds its faction list, and whether a Red v Blue pair is config-only.
 - Whether civilian state survives save/load (check `Persistence/` before adding any state).
+
+## System audit: doors and containers (read from source, not yet played)
+
+**Containers: exist.** `OVT_StorageComponent` is a server-side item ledger (contents never replicate)
+authored on three prefab bases: every wheeled vehicle, `OVT_AmmoBox_Base`, and the vanilla
+`Warehouse_01_Base` (building). Capacity modes AUTO / UNLIMITED / FIXED / NONE (`EOVT_StorageCapacityMode`);
+AUTO gives trucks and ammo boxes and warehouses unlimited, registered cars 300 items, unregistered
+or armed vehicles little or none. Player actions: open, rename, load/unload vehicle, transfer all.
+Gap: only those three holder types count as stockpiles. Ordinary world crates, wardrobes and shelves
+are not holders, and a player-built stash needs a new prefab carrying the component.
+
+**Door locks: absent.** No door lock code exists anywhere in `Scripts/`. Vehicle lock/unlock exists
+(`OVT_LockVehicleAction`, `OVT_UnlockVehicleAction`). Real Estate gives building ownership and a
+home/respawn point but nothing stops anyone entering. Production sites have a public/private toggle
+(`OVT_ToggleSitePrivacyAction`), which is the closest existing pattern to copy.
