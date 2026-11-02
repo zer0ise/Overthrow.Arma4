@@ -45,6 +45,8 @@ Population/Stability/Supporters model and its save path; per-civilian does not).
 `OVT_MainMenuContext` binds fixed layout buttons by name. Extra entries need a layout change plus code,
 or a `modded class OVT_MainMenuContext` in an overlay mod. Not started.
 
+See `SHORTCOMINGS.md` for the running gap list.
+
 ## Open questions
 - How the start menu builds its faction list, and whether a Red v Blue pair is config-only.
 - Whether civilian state survives save/load (check `Persistence/` before adding any state).
